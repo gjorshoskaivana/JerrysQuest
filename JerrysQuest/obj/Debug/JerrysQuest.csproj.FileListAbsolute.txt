@@ -8,3 +8,15 @@ C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.csproj.GenerateReso
 C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.csproj.CoreCompileInputs.cache
 C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.exe
 C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.pdb
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\bin\Debug\JerrysQuest.exe.config
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\bin\Debug\JerrysQuest.exe
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\bin\Debug\JerrysQuest.pdb
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.csprojAssemblyReference.cache
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.Game.resources
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.Home.resources
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.Properties.Resources.resources
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.csproj.GenerateResource.cache
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.csproj.CoreCompileInputs.cache
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.exe
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.pdb
+C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.HowToPlay.resources

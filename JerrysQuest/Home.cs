@@ -16,5 +16,19 @@ namespace JerrysQuest
         {
             InitializeComponent();
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Game game = new Game();
+            game.Show();
+        }
+
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HowToPlay howToPlay = new HowToPlay();
+            howToPlay.Show();
+        }
     }
 }
