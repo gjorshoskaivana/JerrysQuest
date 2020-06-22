@@ -12,9 +12,21 @@ namespace JerrysQuest
 {
     public partial class Game : Form
     {
+        bool up, down, left, right, gameOver;
+        int score, speed;
+
         public Game()
         {
             InitializeComponent();
+            ScoreLabel.Text = "Score: 0";
+            score = 0;
+            gameOver = false;
+
+            Jerry.Left = 8;
+            Jerry.Top = 31;
+            speed = 8;
+
+            GameTimer.Start();
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -31,6 +43,85 @@ namespace JerrysQuest
                     pb.Add(c);
                 }
             }
+        }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Up)
+            {
+                up = true;
+
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                down = true;
+
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                left = true;
+
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                right = true;
+
+            }
+        }
+
+        private void Game_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                up = false;
+
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                down = false;
+
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                left = false;
+
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                right = false;
+
+            }
+        }
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            ScoreLabel.Text = "Score: " + score;
+
+            if (left)
+            {
+                Jerry.Left -= speed;
+                Jerry.Image = Properties.Resources.jerry_running_left;
+            }
+            if (right)
+            {
+                Jerry.Left += speed;
+                Jerry.Image = Properties.Resources.jerry_running_right;
+            }
+            if (down)
+            {
+                Jerry.Top += speed;
+            }
+            if (up)
+            {
+                Jerry.Top -= speed;
+            }
+
+
+        }
+
+        private void GameOver(string msg)
+        {
+
         }
     }
 }

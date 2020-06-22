@@ -22,6 +22,7 @@ namespace JerrysQuest
             this.Hide();
             Game game = new Game();
             game.Show();
+            this.Visible = false;
         }
 
         private void btnHowToPlay_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace JerrysQuest
             this.Hide();
             HowToPlay howToPlay = new HowToPlay();
             howToPlay.Show();
+            this.Visible = false;
         }
     }
 }

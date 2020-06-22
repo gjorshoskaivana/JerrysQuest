@@ -22,6 +22,7 @@ namespace JerrysQuest
             this.Hide();
             Home home = new Home();
             home.Show();
+            this.Visible = false;
         }
     }
 }
