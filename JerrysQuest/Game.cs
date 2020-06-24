@@ -104,19 +104,35 @@ namespace JerrysQuest
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    jerry.direction = DIRECTION.Left;
+                    if(maze[jerry.Y, jerry.X - 1])
+                    {
+                        jerry.direction = DIRECTION.None;
+                    }
+                    else jerry.direction = DIRECTION.Left;
                     jerry.Move();
                     break;
                 case Keys.Right:
-                    jerry.direction = DIRECTION.Right;
+                    if (maze[jerry.Y, jerry.X + 1])
+                    {
+                        jerry.direction = DIRECTION.None;
+                    }
+                    else jerry.direction = DIRECTION.Right;
                     jerry.Move();
                     break;
                 case Keys.Up:
-                    jerry.direction = DIRECTION.Up;
+                    if (maze[jerry.Y - 1, jerry.X])
+                    {
+                        jerry.direction = DIRECTION.None;
+                    }
+                    else jerry.direction = DIRECTION.Up;
                     jerry.Move();
                     break;
                 case Keys.Down:
-                    jerry.direction = DIRECTION.Down;
+                    if (maze[jerry.Y + 1, jerry.X])
+                    {
+                        jerry.direction = DIRECTION.None;
+                    }
+                    else jerry.direction = DIRECTION.Down;
                     jerry.Move();
                     break;
             }
