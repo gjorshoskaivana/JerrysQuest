@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +13,12 @@ namespace JerrysQuest
 {
     public partial class Game : Form
     {
-        bool up, down, left, right, gameOver;
-        int score, speed;
+        bool gameOver, canMove;
+        int score;
         //Graphics graphics;
         //Bitmap buffer;
         //char[][] labrynth;
+        public static Jerry jerry;
         public static int WORLD_WIDTH = 10;
         public static int WORLD_HEIGHT = 10;
         public static int SIDE = 50;
@@ -31,13 +33,8 @@ namespace JerrysQuest
             score = 0;
             gameOver = false;
 
-            Jerry.Left = 8;
-            Jerry.Top = 31;
-            speed = 8;
-
-            GameTimer.Start();
-            
-            
+            newGame(WORLD_HEIGHT, WORLD_WIDTH);
+            DoubleBuffered = true;
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -54,12 +51,15 @@ namespace JerrysQuest
             //        pb.Add(c);
             //    }
             //}
-            newGame(WORLD_HEIGHT, WORLD_WIDTH);
+            //newGame(WORLD_HEIGHT, WORLD_WIDTH);
 
         }
 
         public void newGame(int height, int width)
         {
+            jerry = new Jerry(height, 1);
+            GameTimer.Start();
+            GameTimer.Interval = jerry.Speed;
             MazeGenerator mz = new MazeGenerator(WORLD_HEIGHT, WORLD_WIDTH);
             maze = mz.generate();
             mz = null;
@@ -72,78 +72,110 @@ namespace JerrysQuest
             Invalidate();
         }
 
+        
+
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Up)
-            {
-                up = true;
+            //if(e.KeyCode == Keys.Up && Jerry.Location.X > 0) 
+            //{
+            //    if(!maze[Jerry.Location.X - 1, Jerry.Location.Y])
+            //        up = true;
 
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                down = true;
+            //}
+            //if (e.KeyCode == Keys.Down && Jerry.Location.X < 9)
+            //{
+            //    if(!maze[Jerry.Location.X + 1, Jerry.Location.Y])
+            //        down = true;
 
-            }
-            if (e.KeyCode == Keys.Left)
-            {
-                left = true;
+            //}
+            //if (e.KeyCode == Keys.Left && Jerry.Location.Y > 0)
+            //{
+            //    if(!maze[Jerry.Location.X, Jerry.Location.Y - 1])
+            //        left = true;
 
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                right = true;
+            //}
+            //if (e.KeyCode == Keys.Right && Jerry.Location.Y < 9)
+            //{
+            //    if(!maze[Jerry.Location.X, Jerry.Location.Y + 1])
+            //        right = true;
 
+            //}
+
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    jerry.direction = DIRECTION.Left;
+                    jerry.Move();
+                    break;
+                case Keys.Right:
+                    jerry.direction = DIRECTION.Right;
+                    jerry.Move();
+                    break;
+                case Keys.Up:
+                    jerry.direction = DIRECTION.Up;
+                    jerry.Move();
+                    break;
+                case Keys.Down:
+                    jerry.direction = DIRECTION.Down;
+                    jerry.Move();
+                    break;
             }
         }
 
+
+
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
-            {
-                up = false;
+            //if (e.KeyCode == Keys.Up)
+            //{
+            //    up = false;
 
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                down = false;
+            //}
+            //if (e.KeyCode == Keys.Down)
+            //{
+            //    down = false;
 
-            }
-            if (e.KeyCode == Keys.Left)
-            {
-                left = false;
+            //}
+            //if (e.KeyCode == Keys.Left)
+            //{
+            //    left = false;
 
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                right = false;
+            //}
+            //if (e.KeyCode == Keys.Right)
+            //{
+            //    right = false;
 
-            }
+            //}
+            
+            
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             ScoreLabel.Text = "Score: " + score;
 
-            if (left)
-            {
-                Jerry.Left -= speed;
-                Jerry.Image = Properties.Resources.jerry_running_left;
-            }
-            if (right)
-            {
-                Jerry.Left += speed;
-                Jerry.Image = Properties.Resources.jerry_running_right;
-            }
-            if (down)
-            {
-                Jerry.Top += speed;
-            }
-            if (up)
-            {
-                Jerry.Top -= speed;
-            }
+            
+            Invalidate();
+            //if (left)
+            //{
+            //    Jerry.Left -= speed;
+            //    Jerry.Image = Properties.Resources.jerry_running_left;
+            //}
+            //if (right)
+            //{
 
-
+            //    Jerry.Left += speed;
+            //    Jerry.Image = Properties.Resources.jerry_running_right;
+            //}
+            //if (down)
+            //{
+            //    Jerry.Top += speed;
+            //}
+            //if (up)
+            //{
+            //    Jerry.Top -= speed;
+            //}
+            
         }
 
         private void GameOver(string msg)
@@ -153,7 +185,10 @@ namespace JerrysQuest
 
         private void Start(object sender, Graphics g)
         {
-            for(int i = 0; i < WORLD_HEIGHT + 2; i++)
+            jerry.drawX = jerry.X * SIDE;
+            jerry.drawY = jerry.Y * SIDE;
+            
+            for (int i = 0; i < WORLD_HEIGHT + 2; i++)
             {
                 for (int j = 0; j < WORLD_WIDTH + 2; j++)
                 {
@@ -170,8 +205,8 @@ namespace JerrysQuest
             Graphics g = e.Graphics;
             g.Clear(Color.White);
             Start(sender, g);
+            jerry.drawJerry(g);
         }
-
 
     }
 }

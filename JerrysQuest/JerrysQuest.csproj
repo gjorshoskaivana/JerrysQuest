@@ -52,7 +52,6 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
-    <Compile Include="Graph.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +64,7 @@
     <Compile Include="HowToPlay.Designer.cs">
       <DependentUpon>HowToPlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jerry.cs" />
     <Compile Include="MazeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -30,22 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.Jerry = new System.Windows.Forms.PictureBox();
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.GameOverTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Jerry)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Jerry
-            // 
-            this.Jerry.Image = global::JerrysQuest.Properties.Resources.jerry_running_right;
-            this.Jerry.Location = new System.Drawing.Point(8, 31);
-            this.Jerry.Name = "Jerry";
-            this.Jerry.Size = new System.Drawing.Size(52, 53);
-            this.Jerry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Jerry.TabIndex = 30;
-            this.Jerry.TabStop = false;
             // 
             // ScoreLabel
             // 
@@ -70,7 +58,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(707, 531);
             this.Controls.Add(this.ScoreLabel);
-            this.Controls.Add(this.Jerry);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Game";
             this.Text = "Jerry\'s Quest";
@@ -78,14 +65,12 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Game_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.Jerry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox Jerry;
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Timer GameOverTimer;
