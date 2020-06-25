@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnHowToPlay = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -40,8 +41,8 @@
             this.btnPlay.FlatAppearance.BorderSize = 0;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.ForeColor = System.Drawing.Color.Black;
-            this.btnPlay.Location = new System.Drawing.Point(96, 213);
+            this.btnPlay.ForeColor = System.Drawing.Color.White;
+            this.btnPlay.Location = new System.Drawing.Point(99, 191);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(252, 96);
             this.btnPlay.TabIndex = 0;
@@ -56,8 +57,8 @@
             this.btnHowToPlay.FlatAppearance.BorderSize = 0;
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHowToPlay.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHowToPlay.ForeColor = System.Drawing.Color.Black;
-            this.btnHowToPlay.Location = new System.Drawing.Point(109, 315);
+            this.btnHowToPlay.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnHowToPlay.Location = new System.Drawing.Point(108, 293);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(219, 61);
             this.btnHowToPlay.TabIndex = 1;
@@ -66,6 +67,22 @@
             this.btnHowToPlay.UseVisualStyleBackColor = false;
             this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
             // 
+            // btnQuit
+            // 
+            this.btnQuit.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.FlatAppearance.BorderSize = 0;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.ForeColor = System.Drawing.Color.Black;
+            this.btnQuit.Location = new System.Drawing.Point(108, 360);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(219, 61);
+            this.btnQuit.TabIndex = 2;
+            this.btnQuit.TabStop = false;
+            this.btnQuit.Text = "Quit";
+            this.btnQuit.UseVisualStyleBackColor = false;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -73,6 +90,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnPlay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -86,6 +104,7 @@
 
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnHowToPlay;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
 
