@@ -63,6 +63,16 @@ namespace JerrysQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cheese {
+            get {
+                object obj = ResourceManager.GetObject("cheese", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap jerry_running_left {
             get {
                 object obj = ResourceManager.GetObject("jerry-running-left", resourceCulture);

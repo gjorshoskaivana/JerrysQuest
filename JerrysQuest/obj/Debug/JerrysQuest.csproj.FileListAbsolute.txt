@@ -23,3 +23,4 @@ C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.HowToP
 C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.Home.resources
 C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.HowToPlay.resources
 C:\Users\tamar\source\repos\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.GameOver.resources
+C:\Users\Ivana\JerrysQuest\JerrysQuest\obj\Debug\JerrysQuest.GameOver.resources

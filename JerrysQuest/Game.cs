@@ -13,8 +13,9 @@ namespace JerrysQuest
 {
     public partial class Game : Form
     {
-        bool gameOver, canMove;
+        bool gameOver;
         int score;
+        Random rand;
         //Graphics graphics;
         //Bitmap buffer;
         //char[][] labrynth;
@@ -24,13 +25,15 @@ namespace JerrysQuest
         public static int SIDE = 50;
         public static readonly int STEPS = 3;
         private static Brush brush = new SolidBrush(Color.MidnightBlue);
-        bool[,] maze;
+        public static bool [,] maze;
+        public List<Cheese> pom;
 
         public Game()
         {
             InitializeComponent();
             ScoreLabel.Text = "Score: 0";
             score = 0;
+            rand = new Random();
             gameOver = false;
 
             newGame(WORLD_HEIGHT, WORLD_WIDTH);
@@ -52,24 +55,35 @@ namespace JerrysQuest
             //    }
             //}
             //newGame(WORLD_HEIGHT, WORLD_WIDTH);
+            pom = new List<Cheese>(5);
+            for (int i = 0; i < 5; i++)
+            {
+                Cheese newCh = jerry.newCheese(WORLD_WIDTH, WORLD_HEIGHT);
+                pom.Add(newCh);
+            }
+            jerry.cheese = pom;
 
         }
 
         public void newGame(int height, int width)
         {
             jerry = new Jerry(height, 1);
+            jerry.cheese = pom;
+
             GameTimer.Start();
             GameTimer.Interval = jerry.Speed;
+
             MazeGenerator mz = new MazeGenerator(WORLD_HEIGHT, WORLD_WIDTH);
             maze = mz.generate();
             mz = null;
+
             this.Width = 600 + 16;
             this.Height = 600 + 42;
             SIDE = 600 / Math.Max(WORLD_WIDTH + 2, WORLD_HEIGHT + 2);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            Invalidate();
+            //Invalidate();
         }
 
         
@@ -170,8 +184,8 @@ namespace JerrysQuest
         {
             ScoreLabel.Text = "Score: " + score;
 
-            
             Invalidate();
+
             //if (left)
             //{
             //    Jerry.Left -= speed;
@@ -214,6 +228,35 @@ namespace JerrysQuest
                     }
                 }
             }
+
+
+            //int n = 0;
+            //while(n < numCheese)
+            //{
+            //    bool foodThere = false;
+            //    //Cheese newCheese = new Cheese(rand.Next(0, WORLD_WIDTH + 1), rand.Next(0, WORLD_HEIGHT + 1));
+            //    int x = rand.Next(0, WORLD_WIDTH + 1);
+            //    int y = rand.Next(0, WORLD_HEIGHT + 1);
+            //    if (!maze[x, y])
+            //    {
+            //        for(int i=0; i<cheese.Count; i++)
+            //        {
+            //            if(cheese[i].X == x && cheese[i].Y == y)
+            //            {
+            //                foodThere = true;
+            //                break;
+            //            }
+            //        }
+
+            //        if (foodThere == false)
+            //        {
+            //            cheese.Add(new Cheese(x, y));
+            //            n++;
+            //        }
+            //    }
+
+            //}
+
         }
 
         private void Game_Paint(object sender, PaintEventArgs e)

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cheese.cs" />
     <Compile Include="GameOver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\jerry-running-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cheese.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
