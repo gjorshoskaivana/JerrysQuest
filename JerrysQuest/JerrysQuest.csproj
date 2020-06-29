@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Jerry.cs" />
     <Compile Include="MazeGenerator.cs" />
+    <Compile Include="MouseTrap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GameOver.resx">
@@ -118,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cheese.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse_trap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

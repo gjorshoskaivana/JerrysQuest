@@ -182,7 +182,7 @@ namespace JerrysQuest
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            ScoreLabel.Text = "Score: " + score;
+            ScoreLabel.Text = "Score: " + jerry.score;
 
             Invalidate();
 
