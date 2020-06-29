@@ -21,13 +21,14 @@ namespace JerrysQuest
         public int drawY { get; set; }
         public DIRECTION direction { get; set; }
         Random rand;
-        public int score;
+        public int score, removedTraps;
 
         public Jerry(int x, int y)
         {
             X = x;
             Y = y;
             score = 0;
+            removedTraps = 0;
             cheese = new List<Cheese>();
             traps = new List<MouseTrap>();
             Speed = 100;
@@ -74,10 +75,13 @@ namespace JerrysQuest
             
 
             // add new trap to the maze after 5 collected cheese icons
-            if(score % 5 == 0 && score != 0)
+            if(score != 0 && score % 5 == 0)
             {
-                MouseTrap trap = newMouseTrap(Game.WORLD_WIDTH, Game.WORLD_HEIGHT);
-                traps.Add(trap);
+                if(traps.Count != (int)(score / 5) - removedTraps)
+                {
+                    MouseTrap trap = newMouseTrap(Game.WORLD_WIDTH, Game.WORLD_HEIGHT);
+                    traps.Add(trap);
+                }
             }
 
             // if trap is collected, remove from list
@@ -86,6 +90,7 @@ namespace JerrysQuest
                 if(traps[i].X == this.X && traps[i].Y == this.Y)
                 {
                     traps.Remove(traps[i]);
+                    removedTraps++;
                 }
             }
         }
@@ -126,14 +131,23 @@ namespace JerrysQuest
         public MouseTrap newMouseTrap(int width, int height)
         {
             MouseTrap novo = new MouseTrap(rand.Next(0, width + 2), rand.Next(0, height + 2));
-            if(novo.X == this.X && novo.Y == this.Y)
+            if((novo.X == this.X && novo.Y == this.Y) || Game.maze[novo.Y, novo.X] == true)
             {
                 novo = newMouseTrap(width, height);
             }
-            if(Game.maze[novo.Y, novo.X])
+
+            if (traps != null)
             {
-                novo = newMouseTrap(width, height);
+                foreach (MouseTrap trap in traps)
+                {
+                    if (trap.X == novo.X && trap.Y == novo.Y)
+                    {
+                        novo = newMouseTrap(width, height);
+                        break;
+                    }
+                }
             }
+
             if (cheese != null)
             {
                 foreach (Cheese ch in cheese)
@@ -145,17 +159,7 @@ namespace JerrysQuest
                     }
                 }
             }
-            if(traps != null)
-            {
-                foreach(MouseTrap trap in traps)
-                {
-                    if(trap.X == novo.X && trap.Y == novo.Y)
-                    {
-                        novo = newMouseTrap(width, height);
-                        break;
-                    }
-                }
-            }
+
 
             return novo;
         }
