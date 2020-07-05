@@ -15,6 +15,8 @@ namespace JerrysQuest
         public HowToPlay()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

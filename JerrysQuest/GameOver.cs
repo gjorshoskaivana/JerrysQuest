@@ -12,14 +12,18 @@ namespace JerrysQuest
 {
     public partial class GameOver : Form
     {
-        public GameOver()
+        public int score;
+        public GameOver(int score)
         {
+            this.score = score;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             InitializeComponent();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnPlayAgain_Click(object sender, EventArgs e)
@@ -28,6 +32,11 @@ namespace JerrysQuest
             Game game = new Game();
             game.Show();
             this.Visible = false;
+        }
+
+        private void GameOver_Load(object sender, EventArgs e)
+        {
+            lblScore.Text = "Score: " + score;
         }
     }
 }

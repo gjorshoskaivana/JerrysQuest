@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameOver));
             this.btnPlayAgain = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.lblScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPlayAgain
@@ -67,6 +68,18 @@
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lblScore.Location = new System.Drawing.Point(468, 153);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(98, 34);
+            this.lblScore.TabIndex = 4;
+            this.lblScore.Text = "Score: ";
+            // 
             // GameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -74,12 +87,15 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnPlayAgain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameOver";
             this.Text = "Game Over";
+            this.Load += new System.EventHandler(this.GameOver_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,5 +103,6 @@
 
         private System.Windows.Forms.Button btnPlayAgain;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Label lblScore;
     }
 }

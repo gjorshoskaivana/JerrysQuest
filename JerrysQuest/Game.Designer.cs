@@ -51,6 +51,10 @@
             this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
+            // GameOverTimer
+            // 
+            this.GameOverTimer.Tick += new System.EventHandler(this.GameOverTimer_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

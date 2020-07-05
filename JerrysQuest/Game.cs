@@ -42,6 +42,10 @@ namespace JerrysQuest
 
         private void Game_Load(object sender, EventArgs e)
         {
+            Timer GameOverTimer = new Timer();
+            GameOverTimer.Interval = (1 * 10 * 1000); // 2mins 2 * 60 * 1000
+            GameOverTimer.Tick += new EventHandler(GameOverTimer_Tick);
+            GameOverTimer.Start();
             //Random rand = new Random();
 
             //List<Control> pb = new List<Control>();
@@ -267,5 +271,13 @@ namespace JerrysQuest
             jerry.drawJerry(g);
         }
 
+        private void GameOverTimer_Tick(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameOver gameOver = new GameOver(jerry.score);
+            GameOverTimer.Stop();
+            gameOver.Show();
+            this.Visible = false;
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace JerrysQuest
         public Home()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace JerrysQuest
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }
