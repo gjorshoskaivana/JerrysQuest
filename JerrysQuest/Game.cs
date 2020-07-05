@@ -27,6 +27,8 @@ namespace JerrysQuest
         private static Brush brush = new SolidBrush(Color.MidnightBlue);
         public static bool [,] maze;
         public List<Cheese> pom;
+        public int scorePom = 0;
+        public int removedTrapsPom = 0;
 
         public Game()
         {
@@ -43,7 +45,7 @@ namespace JerrysQuest
         private void Game_Load(object sender, EventArgs e)
         {
             Timer GameOverTimer = new Timer();
-            GameOverTimer.Interval = (1 * 10 * 1000); // 2mins 2 * 60 * 1000
+            GameOverTimer.Interval = (2 * 60 * 1000); // 2mins 2 * 60 * 1000
             GameOverTimer.Tick += new EventHandler(GameOverTimer_Tick);
             GameOverTimer.Start();
             //Random rand = new Random();
@@ -184,9 +186,26 @@ namespace JerrysQuest
             
         }
 
-        private void GameTimer_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e) 
         {
             ScoreLabel.Text = "Score: " + jerry.score;
+            //if (removedTrapsPom != jerry.removedTraps)
+            //{
+            //    if (GameOverTimer.Interval >= (10 * 1000))
+            //    {
+            //        GameOverTimer.Interval -= (10 * 1000);
+            //        removedTrapsPom++;
+            //    }
+            //    else
+            //    {
+            //        GameOverTimer.Interval = 1;
+            //    }
+            //}
+            //if (scorePom != jerry.score)
+            //{
+            //    GameOverTimer.Interval += (5*60*1000);
+            //    scorePom++;
+            //}
 
             Invalidate();
 
@@ -263,7 +282,7 @@ namespace JerrysQuest
 
         }
 
-        private void Game_Paint(object sender, PaintEventArgs e)
+        private void Game_Paint(object sender, PaintEventArgs e) 
         {
             Graphics g = e.Graphics;
             g.Clear(Color.White);
@@ -273,6 +292,25 @@ namespace JerrysQuest
 
         private void GameOverTimer_Tick(object sender, EventArgs e)
         {
+            if (removedTrapsPom != jerry.removedTraps)
+            {
+                if (GameOverTimer.Interval >= (10 * 1000))
+                {
+                    GameOverTimer.Interval -= (30 * 1000);
+                    removedTrapsPom++;
+                    GameOverTimer.Start();
+                }
+                else
+                {
+                    GameOverTimer.Interval = 1;
+                }
+            }
+            if (scorePom != jerry.score)
+            {
+                GameOverTimer.Interval += (10*1000);
+                GameOverTimer.Start();
+                scorePom++;
+            }
             this.Hide();
             GameOver gameOver = new GameOver(jerry.score);
             GameOverTimer.Stop();
