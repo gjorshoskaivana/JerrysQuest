@@ -182,7 +182,7 @@ namespace JerrysQuest
             if (removedTrapsPom != jerry.removedTraps)
             {
                 removedTrapsPom++;
-                counter -= 30;
+                counter -= 45;
             }
             if (scorePom != jerry.score)
             {
