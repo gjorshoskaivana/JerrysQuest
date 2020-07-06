@@ -15,7 +15,7 @@
 
 Со клик на копчето Start се отвора прозорец за играње. 
 
-![Capture](https://user-images.githubusercontent.com/63546054/86640628-c1000080-bfda-11ea-8523-c54ac364ff27.PNG)
+![Capture](https://user-images.githubusercontent.com/63546054/86642014-dde90380-bfdb-11ea-9c27-66f4ba5cc130.PNG)
 
 Со клик на копчето How To Play, се отвора прозорец со инструкции за тоа како се игра. 
 
