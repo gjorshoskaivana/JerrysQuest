@@ -29,10 +29,12 @@ namespace JerrysQuest
         public List<Cheese> pom;
         public int scorePom = 0;
         public int removedTrapsPom = 0;
+        private int counter=120;
 
         public Game()
         {
             InitializeComponent();
+            Timer GameOverTimer = new Timer();
             ScoreLabel.Text = "Score: 0";
             score = 0;
             rand = new Random();
@@ -44,10 +46,12 @@ namespace JerrysQuest
 
         private void Game_Load(object sender, EventArgs e)
         {
-            Timer GameOverTimer = new Timer();
-            GameOverTimer.Interval = (2 * 60 * 1000); // 2mins 2 * 60 * 1000
+            GameOverTimer = new Timer();
             GameOverTimer.Tick += new EventHandler(GameOverTimer_Tick);
+            GameOverTimer.Interval = 1000;
             GameOverTimer.Start();
+            lblTimer.Text = counter.ToString();
+
             //Random rand = new Random();
 
             //List<Control> pb = new List<Control>();
@@ -189,23 +193,6 @@ namespace JerrysQuest
         private void GameTimer_Tick(object sender, EventArgs e) 
         {
             ScoreLabel.Text = "Score: " + jerry.score;
-            //if (removedTrapsPom != jerry.removedTraps)
-            //{
-            //    if (GameOverTimer.Interval >= (10 * 1000))
-            //    {
-            //        GameOverTimer.Interval -= (10 * 1000);
-            //        removedTrapsPom++;
-            //    }
-            //    else
-            //    {
-            //        GameOverTimer.Interval = 1;
-            //    }
-            //}
-            //if (scorePom != jerry.score)
-            //{
-            //    GameOverTimer.Interval += (5*60*1000);
-            //    scorePom++;
-            //}
 
             Invalidate();
 
@@ -290,32 +277,29 @@ namespace JerrysQuest
             jerry.drawJerry(g);
         }
 
-        private void GameOverTimer_Tick(object sender, EventArgs e)
+        private void GameOverTimer_Tick(object sender, EventArgs e) 
         {
+            counter--;
+            if (counter <= 0)
+            {
+                this.Hide();
+                GameOver gameOver = new GameOver(jerry.score);
+                GameOverTimer.Stop();
+                gameOver.Show();
+                this.Visible = false;
+            }
+
             if (removedTrapsPom != jerry.removedTraps)
             {
-                if (GameOverTimer.Interval >= (10 * 1000))
-                {
-                    GameOverTimer.Interval -= (30 * 1000);
-                    removedTrapsPom++;
-                    GameOverTimer.Start();
-                }
-                else
-                {
-                    GameOverTimer.Interval = 1;
-                }
+                removedTrapsPom++;
+                counter -= 30;
             }
             if (scorePom != jerry.score)
             {
-                GameOverTimer.Interval += (10*1000);
-                GameOverTimer.Start();
                 scorePom++;
+                counter += 5;
             }
-            this.Hide();
-            GameOver gameOver = new GameOver(jerry.score);
-            GameOverTimer.Stop();
-            gameOver.Show();
-            this.Visible = false;
+            lblTimer.Text = counter.ToString();
         }
     }
 }
