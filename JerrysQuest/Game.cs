@@ -16,9 +16,6 @@ namespace JerrysQuest
         bool gameOver;
         int score;
         Random rand;
-        //Graphics graphics;
-        //Bitmap buffer;
-        //char[][] labrynth;
         public static Jerry jerry;
         public static int WORLD_WIDTH = 10;
         public static int WORLD_HEIGHT = 10;
@@ -52,19 +49,6 @@ namespace JerrysQuest
             GameOverTimer.Start();
             lblTimer.Text = counter.ToString();
 
-            //Random rand = new Random();
-
-            //List<Control> pb = new List<Control>();
-            //foreach (Control c in this.Controls)
-            //{
-            //    if (c.Name.Contains("pictureBox"))
-            //    {
-            //        c.Tag = "wall";
-            //        c.Location = new Point(rand.Next(50, 600), rand.Next(50, 300));
-            //        pb.Add(c);
-            //    }
-            //}
-            //newGame(WORLD_HEIGHT, WORLD_WIDTH);
             pom = new List<Cheese>(5);
             for (int i = 0; i < 5; i++)
             {
@@ -100,31 +84,6 @@ namespace JerrysQuest
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            //if(e.KeyCode == Keys.Up && Jerry.Location.X > 0) 
-            //{
-            //    if(!maze[Jerry.Location.X - 1, Jerry.Location.Y])
-            //        up = true;
-
-            //}
-            //if (e.KeyCode == Keys.Down && Jerry.Location.X < 9)
-            //{
-            //    if(!maze[Jerry.Location.X + 1, Jerry.Location.Y])
-            //        down = true;
-
-            //}
-            //if (e.KeyCode == Keys.Left && Jerry.Location.Y > 0)
-            //{
-            //    if(!maze[Jerry.Location.X, Jerry.Location.Y - 1])
-            //        left = true;
-
-            //}
-            //if (e.KeyCode == Keys.Right && Jerry.Location.Y < 9)
-            //{
-            //    if(!maze[Jerry.Location.X, Jerry.Location.Y + 1])
-            //        right = true;
-
-            //}
-
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -166,28 +125,7 @@ namespace JerrysQuest
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Up)
-            //{
-            //    up = false;
-
-            //}
-            //if (e.KeyCode == Keys.Down)
-            //{
-            //    down = false;
-
-            //}
-            //if (e.KeyCode == Keys.Left)
-            //{
-            //    left = false;
-
-            //}
-            //if (e.KeyCode == Keys.Right)
-            //{
-            //    right = false;
-
-            //}
-            
-            
+    
         }
 
         private void GameTimer_Tick(object sender, EventArgs e) 
@@ -195,26 +133,6 @@ namespace JerrysQuest
             ScoreLabel.Text = "Score: " + jerry.score;
 
             Invalidate();
-
-            //if (left)
-            //{
-            //    Jerry.Left -= speed;
-            //    Jerry.Image = Properties.Resources.jerry_running_left;
-            //}
-            //if (right)
-            //{
-
-            //    Jerry.Left += speed;
-            //    Jerry.Image = Properties.Resources.jerry_running_right;
-            //}
-            //if (down)
-            //{
-            //    Jerry.Top += speed;
-            //}
-            //if (up)
-            //{
-            //    Jerry.Top -= speed;
-            //}
             
         }
 
@@ -238,34 +156,6 @@ namespace JerrysQuest
                     }
                 }
             }
-
-
-            //int n = 0;
-            //while(n < numCheese)
-            //{
-            //    bool foodThere = false;
-            //    //Cheese newCheese = new Cheese(rand.Next(0, WORLD_WIDTH + 1), rand.Next(0, WORLD_HEIGHT + 1));
-            //    int x = rand.Next(0, WORLD_WIDTH + 1);
-            //    int y = rand.Next(0, WORLD_HEIGHT + 1);
-            //    if (!maze[x, y])
-            //    {
-            //        for(int i=0; i<cheese.Count; i++)
-            //        {
-            //            if(cheese[i].X == x && cheese[i].Y == y)
-            //            {
-            //                foodThere = true;
-            //                break;
-            //            }
-            //        }
-
-            //        if (foodThere == false)
-            //        {
-            //            cheese.Add(new Cheese(x, y));
-            //            n++;
-            //        }
-            //    }
-
-            //}
 
         }
 
