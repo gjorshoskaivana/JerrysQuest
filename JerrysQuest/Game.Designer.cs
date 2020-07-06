@@ -41,9 +41,10 @@
             this.ScoreLabel.AutoSize = true;
             this.ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ScoreLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.ScoreLabel.Location = new System.Drawing.Point(3, 3);
+            this.ScoreLabel.Location = new System.Drawing.Point(2, 2);
+            this.ScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ScoreLabel.Name = "ScoreLabel";
-            this.ScoreLabel.Size = new System.Drawing.Size(94, 25);
+            this.ScoreLabel.Size = new System.Drawing.Size(76, 20);
             this.ScoreLabel.TabIndex = 31;
             this.ScoreLabel.Text = "Score: 0";
             // 
@@ -63,20 +64,22 @@
             this.lblTimer.BackColor = System.Drawing.Color.White;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblTimer.Location = new System.Drawing.Point(663, 3);
+            this.lblTimer.Location = new System.Drawing.Point(519, 2);
+            this.lblTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(0, 25);
+            this.lblTimer.Size = new System.Drawing.Size(0, 20);
             this.lblTimer.TabIndex = 32;
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(707, 531);
+            this.ClientSize = new System.Drawing.Size(530, 431);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.ScoreLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Game";
             this.Text = "Jerry\'s Quest";
             this.Load += new System.EventHandler(this.Game_Load);
